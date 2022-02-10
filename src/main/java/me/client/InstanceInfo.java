@@ -3,6 +3,8 @@ package me.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Objects;
+
 /**
  * 应用实例信息
  *
@@ -43,5 +45,68 @@ public class InstanceInfo {
 
     }
 
+    public static Logger getLogger() {
+        return logger;
+    }
 
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
+    public String getInstanceId() {
+        return instanceId;
+    }
+
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public String getHostName() {
+        return hostName;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
+
+    public InstanceStatus getInstanceStatus() {
+        return instanceStatus;
+    }
+
+    public void setInstanceStatus(InstanceStatus instanceStatus) {
+        this.instanceStatus = instanceStatus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof InstanceInfo)) return false;
+        InstanceInfo that = (InstanceInfo) o;
+        return Objects.equals(getInstanceId(), that.getInstanceId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getInstanceId());
+    }
 }
